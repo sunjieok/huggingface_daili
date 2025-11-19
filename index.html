@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
+    <title>Green Alliance - Protect Our Planet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -21,6 +21,8 @@
             --dark: #1b5e20;
             --text: #333333;
             --white: #ffffff;
+            --error: #d32f2f;
+            --success: #388e3c;
         }
 
         body {
@@ -304,6 +306,116 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Volunteer Form Section */
+        .volunteer {
+            background-color: var(--white);
+        }
+
+        .volunteer-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .volunteer-text h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .volunteer-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .volunteer-text ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .volunteer-text ul li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .volunteer-text ul li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.2);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--white);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            text-align: right;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .error-message {
+            background-color: rgba(211, 47, 47, 0.1);
+            color: var(--error);
+            display: none;
+        }
+
+        .success-message {
+            background-color: rgba(56, 142, 60, 0.1);
+            color: var(--success);
+            display: none;
+        }
+
         .cta {
             background: linear-gradient(to right, var(--primary), var(--secondary));
             color: var(--white);
@@ -438,6 +550,10 @@
             .stats {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .volunteer-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -486,6 +602,10 @@
             .stats {
                 grid-template-columns: 1fr;
             }
+            
+            .volunteer-text h3 {
+                font-size: 1.8rem;
+            }
         }
 
         /* Animation for stats counter */
@@ -500,7 +620,7 @@
         <div class="container nav-container">
             <div class="logo">
                 <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
+                <span>Green Alliance</span>
             </div>
             <nav>
                 <div class="mobile-menu">
@@ -510,7 +630,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
+                    <li><a href="#volunteer">Become Volunteer</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -522,7 +642,7 @@
         <div class="container hero-content">
             <h1>Protect Our Planet, Preserve Our Future</h1>
             <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
+            <a href="#volunteer" class="btn">Become a Volunteer</a>
         </div>
     </section>
 
@@ -530,7 +650,7 @@
     <section id="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Green Network</h2>
+                <h2>About Green Alliance</h2>
                 <p>We are a global community dedicated to environmental protection and sustainable development.</p>
             </div>
             <div class="about-content">
@@ -539,7 +659,7 @@
                 </div>
                 <div class="about-text">
                     <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
+                    <p>Green Alliance is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
                     <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
                     <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
                     <a href="#" class="btn">Learn More</a>
@@ -612,12 +732,86 @@
         </div>
     </section>
 
+    <!-- Volunteer Registration Section -->
+    <section class="volunteer" id="volunteer">
+        <div class="container">
+            <div class="section-title">
+                <h2>Become a Volunteer</h2>
+                <p>Join our team of dedicated individuals working to make a positive impact on the environment.</p>
+            </div>
+            <div class="volunteer-container">
+                <div class="volunteer-text">
+                    <h3>Why Volunteer With Us?</h3>
+                    <p>Your time and skills can help us protect natural habitats, reduce pollution, and build sustainable communities. Whether you're passionate about reforestation, ocean cleanup, or environmental education, there's a place for you in our team.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Participate in meaningful environmental projects</li>
+                        <li><i class="fas fa-check-circle"></i> Learn new skills and gain valuable experience</li>
+                        <li><i class="fas fa-check-circle"></i> Connect with like-minded individuals</li>
+                        <li><i class="fas fa-check-circle"></i> Make a tangible difference for our planet</li>
+                        <li><i class="fas fa-check-circle"></i> Receive certification for your volunteer work</li>
+                    </ul>
+                    <p>Every hour you contribute helps us move closer to a more sustainable future. Fill out the form to start your volunteer journey today!</p>
+                </div>
+                <div class="volunteer-form">
+                    <form id="volunteerForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Area of Interest</label>
+                            <select id="interest" class="form-select" required>
+                                <option value="">Select an option</option>
+                                <option value="reforestation">Reforestation</option>
+                                <option value="ocean-conservation">Ocean Conservation</option>
+                                <option value="cleanup-projects">Cleanup Projects</option>
+                                <option value="environmental-education">Environmental Education</option>
+                                <option value="renewable-energy">Renewable Energy</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="availability">Availability</label>
+                            <select id="availability" class="form-select" required>
+                                <option value="">Select your availability</option>
+                                <option value="1-5-hours">1-5 hours per week</option>
+                                <option value="6-10-hours">6-10 hours per week</option>
+                                <option value="11-20-hours">11-20 hours per week</option>
+                                <option value="more-20-hours">More than 20 hours per week</option>
+                                <option value="weekends-only">Weekends only</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us about your skills, experience, or any other information you'd like to share"></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn">Submit Application</button>
+                        </div>
+                        <div class="error-message" id="errorMessage"></div>
+                        <div class="success-message" id="successMessage">
+                            <i class="fas fa-check-circle"></i> Thank you for your application! We'll get back to you within 3 business days.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
-    <section class="cta" id="get-involved">
+    <section class="cta">
         <div class="container">
             <h2>Join Our Global Movement</h2>
             <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
+            <a href="#volunteer" class="btn">Join Now</a>
         </div>
     </section>
 
@@ -626,7 +820,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Green Network</h3>
+                    <h3>Green Alliance</h3>
                     <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -641,7 +835,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
+                        <li><a href="#volunteer">Become Volunteer</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -659,11 +853,11 @@
                     <h3>Contact Us</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
                     <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
+                    <p><i class="fas fa-envelope"></i> support@greenalliance.org</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
+                <p>&copy; 2025 Green Alliance. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -694,8 +888,17 @@
             });
         }
 
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
+        // Initialize counters when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.stats'));
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -716,7 +919,72 @@
                 }
             });
         });
+
+        // Volunteer Form Submission
+        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Reset messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            try {
+                // Get form values
+                const fullName = document.getElementById('fullName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const interest = document.getElementById('interest').value;
+                const availability = document.getElementById('availability').value;
+                
+                // Simple validation
+                if(!fullName || !email || !phone || !interest || !availability) {
+                    throw new Error('Please fill in all required fields');
+                }
+                
+                // Email format validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(!emailRegex.test(email)) {
+                    throw new Error('Please enter a valid email address');
+                }
+                
+                // Phone number validation (simple check for 10+ digits)
+                const phoneRegex = /^\d{10,15}$/;
+                if(!phoneRegex.test(phone.replace(/\D/g, ''))) {
+                    throw new Error('Please enter a valid phone number');
+                }
+                
+                // If validation passes, show success message
+                successMessage.style.display = 'block';
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    this.reset();
+                    successMessage.style.display = 'none';
+                }, 5000);
+                
+                // Here you would normally send the form data to a server
+                console.log({
+                    fullName,
+                    email,
+                    phone,
+                    interest,
+                    availability,
+                    message: document.getElementById('message').value
+                });
+                
+            } catch (error) {
+                errorMessage.textContent = error.message;
+                errorMessage.style.display = 'block';
+                
+                // Hide error after 5 seconds
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
     </script>
 </body>
-
 </html>
